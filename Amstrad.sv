@@ -113,6 +113,7 @@ pll pll
 (
 	.inclk0(CLOCK_27),
 	.c0(clk_sys),
+	.c1(SDRAM_CLK),
 	.locked(locked)
 );
 
@@ -333,7 +334,7 @@ wire  [7:0] ram_dout;
 wire [15:0] vram_dout;
 wire [14:0] vram_addr;
 
-assign SDRAM_CLK = clk_sys;
+// assign SDRAM_CLK = clk_sys;
 
 sdram sdram
 (
