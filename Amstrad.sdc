@@ -9,11 +9,11 @@ set sdramclk ${topmodule}pll|altpll_component|auto_generated|pll1|clk[1]
 set_clock_groups -asynchronous -group [get_clocks spiclk] -group [get_clocks ${topmodule}pll|altpll_component|auto_generated|pll1|clk[*]]
 
 # SDRAM delays
-set_input_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports {SDRAM_CLK}] -max 6.4 [get_ports SDRAM_DQ[*]]
-set_input_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports {SDRAM_CLK}] -min 3.2 [get_ports SDRAM_DQ[*]]
+set_input_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports $RAM_CLK] -max 6.4 [get_ports $RAM_IN]
+set_input_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports $RAM_CLK] -min 3.2 [get_ports $RAM_IN]
 
-set_output_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports {SDRAM_CLK}] -max 1.5 [get_ports {SDRAM_D* SDRAM_A* SDRAM_BA* SDRAM_n* SDRAM_CKE}]
-set_output_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports {SDRAM_CLK}] -min -0.8 [get_ports {SDRAM_D* SDRAM_A* SDRAM_BA* SDRAM_n* SDRAM_CKE}]
+set_output_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports $RAM_CLK] -max 1.5 [get_ports $RAM_OUT]
+set_output_delay -clock [get_clocks $sdramclk] -reference_pin [get_ports $RAM_CLK] -min -0.8 [get_ports $RAM_OUT]
 
 # Some relaxed constrain to the VGA pins. The signals should arrive together, the delay is not really important.
 set_output_delay -clock [get_clocks $sysclk] -max 0 [get_ports {VGA_*}]

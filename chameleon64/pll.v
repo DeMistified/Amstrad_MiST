@@ -98,15 +98,15 @@ module pll (
 				.vcounderrange ());
 	defparam
 		altpll_component.bandwidth_type = "AUTO",
-		altpll_component.clk0_divide_by = 50,
+		altpll_component.clk0_divide_by = 8,
 		altpll_component.clk0_duty_cycle = 50,
 		altpll_component.clk0_multiply_by = 64,
 		altpll_component.clk0_phase_shift = "0",
-		altpll_component.clk1_divide_by = 50,
+		altpll_component.clk1_divide_by = 8,
 		altpll_component.clk1_duty_cycle = 50,
 		altpll_component.clk1_multiply_by = 64,
 		altpll_component.clk1_phase_shift = "-1500",
-		altpll_component.inclk0_input_frequency = 20000,
+		altpll_component.inclk0_input_frequency = 125000,
 		altpll_component.intended_device_family = "Cyclone IV",
 		altpll_component.lpm_hint = "CBX_MODULE_PREFIX=pll",
 		altpll_component.lpm_type = "altpll",
